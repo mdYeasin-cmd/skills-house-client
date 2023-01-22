@@ -1,0 +1,24 @@
+.nav-item {
+    transition: all 0.3s ease;
+    font-size: 17px;
+}
+
+.nav-item-active {
+    padding-bottom: 10px;
+    border-bottom: 2px solid #34526e;
+    border-radius: 0 0 2px 2px;
+}
+
+.nav-item:hover {
+    padding-bottom: 10px;
+    border-bottom: 2px solid #34526e;
+    border-radius: 0 0 2px 2px;
+}
+
+.nav-icon {
+    transition: all 0.2s linear;
+}
+
+.nav-icon:hover {
+    transform: scale(1.3);
+}
