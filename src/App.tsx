@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Home from './Pages/Home/Home/Home';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './routes/Router/Router';
 
