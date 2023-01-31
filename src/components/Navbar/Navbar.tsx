@@ -17,7 +17,7 @@ const Navbar = () => {
         <div>
 
             {/* Navbar */}
-            <nav className="flex justify-between text-[#34526e] w-screen border-b-4">
+            <nav className="flex justify-between text-[#34526e]">
                 <div className="px-5 xl:px-12 py-2 flex w-full items-center">
                     {/* Logo Here */}
                     <Link className="flex items-center text-3xl font-bold font-heading" to="/">
