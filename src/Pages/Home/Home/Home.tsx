@@ -4,6 +4,11 @@ import Banner from '../Banner/Banner';
 import Course1 from './../../../assets/CoursesImage/web-design.jpg';
 import Course2 from './../../../assets/CoursesImage/graphic-design.jpg';
 import Course3 from './../../../assets/CoursesImage/digital-marketing.png';
+import SectionTitle from '../../../components/SectionTitle/SectionTitle';
+import CategoryCard from '../../Courses/CategoryCard/CategoryCard';
+import { BsCodeSlash } from "react-icons/bs";
+import { SiMaterialdesignicons } from "react-icons/si";
+import { AiTwotoneSound, AiOutlineSecurityScan } from "react-icons/ai";
 
 interface ICoursesInfo {
     courseCategory: string,
@@ -16,6 +21,13 @@ interface ICoursesInfo {
 }
 
 type CoursesInfoType = ICoursesInfo[];
+
+interface ICourseCategory {
+    name: string;
+    icon: JSX.Element;
+}
+
+type CourseCategoryType = ICourseCategory[]
 
 const Home = () => {
 
@@ -47,21 +59,48 @@ const Home = () => {
             courseImage: Course3,
             courseFee: 30000
         }
+    ];
+
+    const courseCategory: CourseCategoryType = [
+        {
+            name: 'Web and Software',
+            icon: <BsCodeSlash />
+        },
+        {
+            name: 'Design and Multimedia',
+            icon: <SiMaterialdesignicons />
+        },
+        {
+            name: 'Digital Marketing',
+            icon: <AiTwotoneSound />
+        },
+        {
+            name: 'Cyber Security',
+            icon: <AiOutlineSecurityScan />
+        }
     ]
 
     return (
         <div>
             <Banner></Banner>
-            <div>
-                <h2 className="text-4xl text-center font-semibold my-7">Our Courses</h2>
-                <div className="flex justify-between pt-5 pb-40 xl:px-16">
-                    {
-                        courses.map((course, idx) => <CourseCard
-                            key={idx}
-                            course={course}
-                        ></CourseCard>)
-                    }
-                </div>
+            <div className="flex justify-between xl:px-16 text-center my-8">
+                {
+                    courseCategory.map((category, idx) => <CategoryCard
+                        key={idx}
+                        category={category}
+                    />)
+                }
+            </div>
+            <SectionTitle
+                secTitle="Popular Courses"
+            />
+            <div className="flex justify-between pt-5 pb-5 xl:px-16">
+                {
+                    courses.map((course, idx) => <CourseCard
+                        key={idx}
+                        course={course}
+                    ></CourseCard>)
+                }
             </div>
         </div>
     );
