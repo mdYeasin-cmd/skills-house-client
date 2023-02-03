@@ -11,6 +11,7 @@ import { SiMaterialdesignicons } from "react-icons/si";
 import { AiTwotoneSound, AiOutlineSecurityScan } from "react-icons/ai";
 import Footer from '../../../components/Footer/Footer';
 import NewsLetter from '../NewsLetter/NewsLetter';
+import Instructor from '../Instructor/Instructor';
 
 interface ICoursesInfo {
     courseCategory: string,
@@ -93,16 +94,29 @@ const Home = () => {
                     />)
                 }
             </div>
-            <SectionTitle
-                secTitle="Popular Courses"
-            />
-            <div className="flex justify-between pt-5 pb-5 xl:px-16">
-                {
-                    courses.map((course, idx) => <CourseCard
-                        key={idx}
-                        course={course}
-                    ></CourseCard>)
-                }
+            <div className="pb-12">
+                <SectionTitle
+                    secTitle="Popular Courses"
+                />
+                <div className="flex justify-between pt-5 pb-5 xl:px-16">
+                    {
+                        courses.map((course, idx) => <CourseCard
+                            key={idx}
+                            course={course}
+                        ></CourseCard>)
+                    }
+                </div>
+            </div>
+            <div className="bg-base-200 pt-5">
+                <SectionTitle
+                    secTitle="Our Instructor"
+                />
+                <Instructor />
+            </div>
+            <div>   
+                <SectionTitle
+                    secTitle="Testimonials"
+                />
             </div>
             <NewsLetter />
             <Footer />
