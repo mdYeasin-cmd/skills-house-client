@@ -12,6 +12,7 @@ import { AiTwotoneSound, AiOutlineSecurityScan } from "react-icons/ai";
 import Footer from '../../../components/Footer/Footer';
 import NewsLetter from '../NewsLetter/NewsLetter';
 import Instructor from '../Instructor/Instructor';
+import Testimonial from '../Testimonial/Testimonial';
 
 interface ICoursesInfo {
     courseCategory: string,
@@ -117,6 +118,7 @@ const Home = () => {
                 <SectionTitle
                     secTitle="Testimonials"
                 />
+                <Testimonial />
             </div>
             <NewsLetter />
             <Footer />
