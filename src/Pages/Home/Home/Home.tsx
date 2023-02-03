@@ -10,6 +10,7 @@ import { BsCodeSlash } from "react-icons/bs";
 import { SiMaterialdesignicons } from "react-icons/si";
 import { AiTwotoneSound, AiOutlineSecurityScan } from "react-icons/ai";
 import Footer from '../../../components/Footer/Footer';
+import NewsLetter from '../NewsLetter/NewsLetter';
 
 interface ICoursesInfo {
     courseCategory: string,
@@ -103,6 +104,7 @@ const Home = () => {
                     ></CourseCard>)
                 }
             </div>
+            <NewsLetter />
             <Footer />
         </div>
     );
