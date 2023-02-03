@@ -1,4 +1,5 @@
 import React from 'react';
+import StarRating from '../../../components/StarRating/StarRating';
 
 type CourseProps = {
     course: {
@@ -26,11 +27,14 @@ const CourseCard = ({ course }: CourseProps) => {
                 <h2 className="card-title">
                     {courseName}
                 </h2>
-                <div className="card-actions justify-between">
-                    <div className="badge badge-outline">{ratings} {reviewCout} Reviews</div>
-                    <div className="badge badge-outline">{enrolledStuents} Students</div>
+                <div className="card-actions justify-between items-center">
+                    <div className="badge badge-outline p-1">
+                        <StarRating ratings={ratings} />
+                        <span className="ml-1">|| {reviewCout} Reviews</span>
+                    </div>
+                    <div className="badge badge-outline p-1">{enrolledStuents} Students</div>
                 </div>
-                <h2>{courseFee}</h2>
+                <h2 className="text-xl font-semibold">Course Fee {courseFee} $</h2>
             </div>
         </div>
     );

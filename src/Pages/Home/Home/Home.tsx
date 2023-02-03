@@ -32,7 +32,7 @@ const Home = () => {
         {
             courseCategory: 'Design and Multimedia',
             courseName: 'Graphic Design',
-            ratings: 5,
+            ratings: 4,
             reviewCout: 2001,
             enrolledStuents: 230,
             courseImage: Course2,
@@ -41,7 +41,7 @@ const Home = () => {
         {
             courseCategory: 'Digital Marketing',
             courseName: 'Digital Marketing',
-            ratings: 5,
+            ratings: 3,
             reviewCout: 2333,
             enrolledStuents: 230,
             courseImage: Course3,
