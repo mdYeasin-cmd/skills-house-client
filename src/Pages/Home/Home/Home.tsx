@@ -13,6 +13,7 @@ import Footer from '../../../components/Footer/Footer';
 import NewsLetter from '../NewsLetter/NewsLetter';
 import Instructor from '../Instructor/Instructor';
 import Testimonial from '../Testimonial/Testimonial';
+import Advertise from '../Advertise/Advertise';
 
 interface ICoursesInfo {
     courseCategory: string,
@@ -86,7 +87,10 @@ const Home = () => {
 
     return (
         <div>
+            {/* Banner Section */}
             <Banner></Banner>
+
+            {/* Course Category Section */}
             <div className="flex justify-between xl:px-16 text-center my-8">
                 {
                     courseCategory.map((category, idx) => <CategoryCard
@@ -95,6 +99,8 @@ const Home = () => {
                     />)
                 }
             </div>
+
+            {/* Popular Courses Section */}
             <div className="pb-12">
                 <SectionTitle
                     secTitle="Popular Courses"
@@ -108,19 +114,30 @@ const Home = () => {
                     }
                 </div>
             </div>
+
+            {/* Instructor Course Advertise Section */}
+            <Advertise />
+
+            {/* Instructor Section */}
             <div className="bg-base-200 pt-5">
                 <SectionTitle
                     secTitle="Our Instructor"
                 />
                 <Instructor />
             </div>
+
+            {/* Testimonial Section */}
             <div>   
                 <SectionTitle
                     secTitle="Testimonials"
                 />
                 <Testimonial />
             </div>
+
+            {/* Newsletter Section */}
             <NewsLetter />
+
+            {/* Footer Section */}
             <Footer />
         </div>
     );
