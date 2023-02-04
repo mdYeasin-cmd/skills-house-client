@@ -92,7 +92,7 @@ const Home = () => {
             <Banner></Banner>
 
             {/* Course Category Section */}
-            <div className="flex justify-between xl:px-16 text-center my-8">
+            <div className="flex justify-between xl:px-16 text-center py-8">
                 {
                     courseCategory.map((category, idx) => <CategoryCard
                         key={idx}
@@ -102,7 +102,7 @@ const Home = () => {
             </div>
 
             {/* Popular Courses Section */}
-            <div className="pb-12">
+            <div className="pb-12 bg-base-200">
                 <SectionTitle
                     secTitle="Popular Courses"
                 />
