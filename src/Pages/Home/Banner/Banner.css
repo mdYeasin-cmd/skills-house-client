@@ -29,3 +29,26 @@
     background-color: #51DBDC !important;
 }
 
+.banner-title {
+    transform: translateY(-120%);
+    transition: all 0.5s ease-out;
+}
+
+.banner-subtitle {
+    transform: translateX(120%);
+    transition: all 0.5s ease-out;
+}
+
+.banner-enroll-btn {
+    transform: translateY(120%);
+    transition: all 0.5s ease-out;
+}
+
+.swiper-slide-active .banner-title,
+.swiper-slide-active .banner-enroll-btn {
+    transform: translateY(0);
+}
+
+.swiper-slide-active .banner-subtitle {
+    transform: translateX(0);
+}

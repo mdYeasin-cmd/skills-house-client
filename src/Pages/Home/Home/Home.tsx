@@ -14,6 +14,7 @@ import NewsLetter from '../NewsLetter/NewsLetter';
 import Instructor from '../Instructor/Instructor';
 import Testimonial from '../Testimonial/Testimonial';
 import Advertise from '../Advertise/Advertise';
+import Statistics from '../Statistics/Statistics';
 
 interface ICoursesInfo {
     courseCategory: string,
@@ -117,6 +118,9 @@ const Home = () => {
 
             {/* Instructor Course Advertise Section */}
             <Advertise />
+
+            {/* Our Statistics Section */}
+            <Statistics />
 
             {/* Instructor Section */}
             <div className="bg-base-200 pt-5">

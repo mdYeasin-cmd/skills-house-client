@@ -1,4 +1,3 @@
-import React from 'react';
 import './Banner.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper';
@@ -48,7 +47,7 @@ const Banner = () => {
                 className="banner-info-container"
                 modules={[Navigation, Pagination, Autoplay, EffectFade]}
                 autoplay={{
-                    delay: 3000,
+                    delay: 5000,
                     disableOnInteraction: false
                 }}
                 loop={true}
@@ -69,11 +68,11 @@ const Banner = () => {
                         >
                             <div className="flex justify-center items-center h-full text-white text-center">
                                 <div>
-                                    <h2 className="text-5xl font-bold uppercase">{bannerInfo.bannerTittle}</h2>
-                                    <h3 className="w-8/12 text-lg mt-3 mx-auto">
+                                    <h2 className="banner-title text-5xl font-bold uppercase">{bannerInfo.bannerTittle}</h2>
+                                    <h3 className="banner-subtitle w-8/12 text-lg mt-3 mx-auto">
                                         {bannerInfo.bannerSubTittle}
                                     </h3>
-                                    <button className="btn bg-[#51DBDC] hover:bg-[#51DBDC] hover:bg-opacity-80 border-0 mt-5">Enroll Now</button>
+                                    <button className="btn bg-[#51DBDC] hover:bg-[#51DBDC] hover:bg-opacity-80 border-0 mt-5 banner-enroll-btn">Enroll Now</button>
                                 </div>
                             </div>
                         </div>
