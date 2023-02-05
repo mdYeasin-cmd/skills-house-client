@@ -5,10 +5,11 @@ type SectionTitleProps = {
     secSubTitle?: string;
 }
 
-const SectionTitle = ({ secTitle }: SectionTitleProps) => {
+const SectionTitle = ({ secTitle, secSubTitle }: SectionTitleProps) => {
     return (
         <div>
-            <h2 className="text-4xl text-center font-semibold py-7">{secTitle}</h2>
+            <h2 className="text-4xl text-center font-semibold pb-0 pt-14 mx-auto uppercase">{secTitle}</h2>
+            <p className="text-center pt-3 pb-5">{secSubTitle}</p>
         </div>
     );
 };

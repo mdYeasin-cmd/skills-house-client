@@ -18,7 +18,7 @@ const CourseCard = ({ course }: CourseProps) => {
     const { courseCategory, courseImage, courseName, ratings, reviewCout, enrolledStuents, courseFee } = course;
 
     return (
-        <div className="card w-96 bg-base-100 shadow-2xl">
+        <div className="card bg-base-100 shadow-lg" data-aos="fade-left">
             <figure>
                 <img src={courseImage} className="w-full h-[241px]" alt="Shoes" />
             </figure>

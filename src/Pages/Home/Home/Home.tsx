@@ -103,16 +103,22 @@ const Home = () => {
 
             {/* Popular Courses Section */}
             <div className="pb-12 bg-base-200">
-                <SectionTitle
-                    secTitle="Popular Courses"
-                />
-                <div className="flex justify-between pt-5 pb-5 xl:px-16">
+                <div>
+                    <h2 className="text-4xl text-center font-semibold pb-1 pt-14 mx-auto uppercase border-b-2 shadow-sm w-[27%] outline-offset-2">Popular Courses</h2>
+                    <p className="text-center pt-3 pb-5 text-lg mt-2">
+                        All of our popular courses by which students are satisfied
+                    </p>
+                </div>
+                <div className="flex justify-between pt-5 pb-5 xl:px-16 overflow-x-hidden">
                     {
                         courses.map((course, idx) => <CourseCard
                             key={idx}
                             course={course}
                         ></CourseCard>)
                     }
+                </div>
+                <div className="flex justify-center xl:px-16">
+                    <button data-aos="fade-up" className="btn bg-[#51DBDC] hover:bg-[#51DBDC] hover:bg-opacity-80 border-0 mt-5 banner-enroll-btn">See More Courses</button>
                 </div>
             </div>
 
@@ -131,7 +137,7 @@ const Home = () => {
             </div>
 
             {/* Testimonial Section */}
-            <div>   
+            <div>
                 <SectionTitle
                     secTitle="Testimonials"
                 />
