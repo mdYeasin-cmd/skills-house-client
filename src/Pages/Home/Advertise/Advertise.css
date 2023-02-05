@@ -2,6 +2,15 @@
     clip-path: polygon(36% 0, 100% 0%, 100% 100%, 0 100%);
 }
 
+.advertise-enroll-btn {
+    transition: all 0.5s linear;
+    transform: translateX(180px);
+}
+
+.advertise-section .swiper-slide-active .advertise-enroll-btn {
+    transform: translateX(0);
+}
+
 .slide-active-zoom-in {
     transition: all 0.3s linear;
     transform: scale(0);

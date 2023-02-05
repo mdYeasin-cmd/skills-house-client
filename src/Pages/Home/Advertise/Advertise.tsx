@@ -8,7 +8,7 @@ import './Advertise.css';
 import { AiOutlineCheckSquare } from "react-icons/ai";
 import { FaHandPointRight } from "react-icons/fa";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper';
+import { Autoplay, EffectFade } from 'swiper';
 
 
 interface ICourseFeature {
@@ -104,17 +104,13 @@ const Advertise = () => {
         <div className="advertise-section">
             <Swiper
                 className="banner-info-container"
-                modules={[Navigation, Pagination, Autoplay, EffectFade]}
+                modules={[Autoplay, EffectFade]}
                 autoplay={{
                     delay: 3000,
                     disableOnInteraction: false,
-                    // pauseOnMouseEnter: true
                 }}
                 loop={true}
                 effect={"fade"}
-                // pagination={{ clickable: true }}
-                // onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
             >
                 {
                     coursesFeature.map((courseFeature, idx) => <SwiperSlide
@@ -142,7 +138,7 @@ const Advertise = () => {
                                     <img className="w-14 h-14 mx-auto rounded-full" src={courseFeature.instructor.instructorImg} alt="" />
                                     <h1 className="text-lg font-medium">{courseFeature.instructor.name}</h1>
                                     <p>{courseFeature.instructor.designation}</p>
-                                    <button className="btn bg-[#51DBDC] hover:bg-[#51DBDC] hover:bg-opacity-80 border-0 mt-2">Enroll Now</button>
+                                    <button className="btn bg-[#51DBDC] hover:bg-[#51DBDC] hover:bg-opacity-80 border-0 mt-2 advertise-enroll-btn">Enroll Now</button>
                                 </div>
                                 <div>
                                     <div className="flex items-center rounded-full text-center justify-center bg-red-600 w-[120px] h-[120px] p-5 slide-active-zoom-in">
