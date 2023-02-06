@@ -110,7 +110,7 @@ const Advertise = () => {
                     disableOnInteraction: false,
                 }}
                 loop={true}
-                effect={"fade"}
+                // effect={"fade"}
             >
                 {
                     coursesFeature.map((courseFeature, idx) => <SwiperSlide
