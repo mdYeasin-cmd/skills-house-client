@@ -1,35 +1,54 @@
 import React from 'react';
 import logo from './../../assets/Logo/logo.png';
+import './Footer.css';
+import { BsFacebook, BsLinkedin, BsTwitter } from "react-icons/bs";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
         <div>
-            <footer className="footer p-10 bg-base-200 text-base-content xl:px-16">
-                <div>
-                    <img src={logo} className="w-32" alt="" />
-                    <p className="text-base font-semibold">Skills House</p>
-                    <p>Providing reliable services since 2015</p>
+            <footer>
+                <div className="footer p-10 xl:py-12 bg-base-200 text-[#34526e] xl:px-16">
+                    <div>
+                        <img src={logo} className="w-32" alt="" />
+                        <div className="footer-text-container">
+                            <p className="text-base font-semibold">Skills House</p>
+                            <p className="footer-subtext">Providing reliable services since 2015</p>
+                        </div>
+                        <div className="flex justify-between">
+                            <Link to="/" className="w-7 h-7 rounded-full flex justify-center items-center text-sm text-white bg-[#34526e] mr-2 text-center">
+                                <BsLinkedin />
+                            </Link>
+                            <Link to="/" className="w-7 h-7 rounded-full flex justify-center items-center text-sm text-white bg-[#34526e] mr-2 text-center">
+                                <BsTwitter />
+                            </Link>
+                            <Link to="/" className="w-7 h-7 rounded-full flex justify-center items-center text-sm text-white bg-[#34526e] mr-2 text-center">
+                                <BsFacebook />
+                            </Link>
+                        </div>
+                    </div>
+                    <div>
+                        <span className="footer-title">Services</span>
+                        <Link className="link link-hover" to="/">Branding</Link>
+                        <Link className="link link-hover" to="/">Design</Link>
+                        <Link className="link link-hover" to="/">Marketing</Link>
+                        <Link className="link link-hover" to="/">Advertisement</Link>
+                    </div>
+                    <div>
+                        <span className="footer-title">Company</span>
+                        <Link className="link link-hover" to="/">About us</Link>
+                        <Link className="link link-hover" to="/">Contact</Link>
+                        <Link className="link link-hover" to="/">Jobs</Link>
+                        <Link className="link link-hover" to="/">Press kit</Link>
+                    </div>
+                    <div>
+                        <span className="footer-title">Legal</span>
+                        <Link className="link link-hover" to="/">Terms of use</Link>
+                        <Link className="link link-hover" to="/">Privacy policy</Link>
+                        <Link className="link link-hover" to="/">Cookie policy</Link>
+                    </div>
                 </div>
-                <div>
-                    <span className="footer-title">Services</span>
-                    <a className="link link-hover" href="/">Branding</a>
-                    <a className="link link-hover" href="/">Design</a>
-                    <a className="link link-hover" href="/">Marketing</a>
-                    <a className="link link-hover" href="/">Advertisement</a>
-                </div>
-                <div>
-                    <span className="footer-title">Company</span>
-                    <a className="link link-hover" href="/">About us</a>
-                    <a className="link link-hover" href="/">Contact</a>
-                    <a className="link link-hover" href="/">Jobs</a>
-                    <a className="link link-hover" href="/">Press kit</a>
-                </div>
-                <div>
-                    <span className="footer-title">Legal</span>
-                    <a className="link link-hover" href="/">Terms of use</a>
-                    <a className="link link-hover" href="/">Privacy policy</a>
-                    <a className="link link-hover" href="/">Cookie policy</a>
-                </div>
+                <p className="text-center py-2 text-sm bg-base-300">Copyright © 2023 - All right reserved by Skills House</p>
             </footer>
         </div>
     );

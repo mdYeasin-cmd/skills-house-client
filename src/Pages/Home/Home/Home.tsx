@@ -87,7 +87,7 @@ const Home = () => {
     ]
 
     return (
-        <div>
+        <div className="mt-[80px]">
             {/* Banner Section */}
             <Banner></Banner>
 
@@ -130,9 +130,6 @@ const Home = () => {
 
             {/* Instructor Section */}
             <div className="bg-base-200 pt-5">
-                {/* <SectionTitle
-                    secTitle="Our Instructor"
-                /> */}
                 <div>
                     <h2 className="text-4xl text-center font-semibold pb-1 pt-14 mx-auto uppercase border-b-2 shadow-sm w-[24%] outline-offset-2">Our Instructor</h2>
                 </div>
@@ -141,9 +138,6 @@ const Home = () => {
 
             {/* Testimonial Section */}
             <div>
-                {/* <SectionTitle
-                    secTitle="Testimonials"
-                /> */}
                 <div>
                     <h2 className="text-4xl text-center font-semibold pb-1 pt-14 mx-auto uppercase border-b-2 shadow-sm w-[20%] outline-offset-2">Testimonials</h2>
                 </div>
