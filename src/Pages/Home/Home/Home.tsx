@@ -4,7 +4,6 @@ import Banner from '../Banner/Banner';
 import Course1 from './../../../assets/CoursesImage/web-design.jpg';
 import Course2 from './../../../assets/CoursesImage/graphic-design.jpg';
 import Course3 from './../../../assets/CoursesImage/digital-marketing.png';
-import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import CategoryCard from '../../Courses/CategoryCard/CategoryCard';
 import { BsCodeSlash } from "react-icons/bs";
 import { SiMaterialdesignicons } from "react-icons/si";
@@ -15,6 +14,7 @@ import Instructor from '../Instructor/Instructor';
 import Testimonial from '../Testimonial/Testimonial';
 import Advertise from '../Advertise/Advertise';
 import Statistics from '../Statistics/Statistics';
+
 
 interface ICoursesInfo {
     courseCategory: string,
@@ -141,9 +141,12 @@ const Home = () => {
 
             {/* Testimonial Section */}
             <div>
-                <SectionTitle
+                {/* <SectionTitle
                     secTitle="Testimonials"
-                />
+                /> */}
+                <div>
+                    <h2 className="text-4xl text-center font-semibold pb-1 pt-14 mx-auto uppercase border-b-2 shadow-sm w-[20%] outline-offset-2">Testimonials</h2>
+                </div>
                 <Testimonial />
             </div>
 

@@ -1,0 +1,6 @@
+.testimonial-section .swiper-slide {
+    transition: all 0.3s linear;
+}
+.testimonial-section .swiper-slide-active {
+    transform: scaleY(1.1);
+}

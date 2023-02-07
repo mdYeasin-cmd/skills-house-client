@@ -1,7 +1,7 @@
 import React from 'react';
 import './Instructor.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper';
+import { Navigation, Pagination, Autoplay } from 'swiper';
 import instructor1 from './../../../assets/Instructor/instructor-1.jpg';
 import instructor2 from './../../../assets/Instructor/instructor-2.jpg';
 import instructor3 from './../../../assets/Instructor/instructor-3.jpg';
