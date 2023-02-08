@@ -115,7 +115,7 @@ const Advertise = () => {
                     coursesFeature.map((courseFeature, idx) => <SwiperSlide
                         key={idx}
                     >
-                        <div className="bg-[#34526e] flex justify-between xl:pl-16 text-white min-h-[360px]">
+                        <div className="bg-[#34526e] flex justify-between xl:pl-16 text-white sm:h-[360px]">
                             <div data-aos="fade-left" className="py-14 sm:py-20 w-full sm:w-1/2 px-5 flex flex-col-reverse sm:flex-row sm:justify-between sm:px-0">
                                 <div className="flex justify-center">
                                     <div>

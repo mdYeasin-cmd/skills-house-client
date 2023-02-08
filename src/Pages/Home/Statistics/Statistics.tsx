@@ -7,8 +7,8 @@ const Statistics = ({ ...rest }) => {
     const [viewPortEntered, setViewPortEntered] = useState(false);
 
     return (
-        <div data-aos="fade-up" className="sm:flex justify-between xl:px-16 text-center py-9">
-            <div className="w-1/4">
+        <div data-aos="fade-up" className="flex flex-col sm:flex-row justify-center items-center xl:px-16 text-center py-9">
+            <div className="sm:w-1/4 mb-3 sm:mb-0">
                 <h3 className="text-5xl font-bold" data-number="2300">
                     <CountUp
                         {...rest}
@@ -34,7 +34,7 @@ const Statistics = ({ ...rest }) => {
                 </h3>
                 <p className="text-xl font-medium">Students</p>
             </div>
-            <div className="w-1/4">
+            <div className="sm:w-1/4 mb-3 sm:mb-0">
                 <h3 className="text-5xl font-bold" data-number="80">
                     <CountUp
                         {...rest}
@@ -60,7 +60,7 @@ const Statistics = ({ ...rest }) => {
                 </h3>
                 <p className="text-xl font-medium">Courses</p>
             </div>
-            <div className="w-1/4">
+            <div className="sm:w-1/4 mb-3 sm:mb-0">
                 <h3 className="text-5xl font-bold" data-number="75">
                     <CountUp
                         {...rest}
@@ -86,7 +86,7 @@ const Statistics = ({ ...rest }) => {
                 </h3>
                 <p className="text-xl font-medium">Instructors</p>
             </div>
-            <div className="w-1/4">
+            <div className="sm:w-1/4 mb-0">
                 <h3 className="text-5xl font-bold" data-number="2000">
                     <CountUp
                         {...rest}
