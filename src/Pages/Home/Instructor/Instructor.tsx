@@ -41,7 +41,7 @@ const Instructor = () => {
 
     return (
         <Swiper
-            className="banner-info-container"
+            className="h-full"
             data-aos="fade-up"
             modules={[Navigation, Pagination, Autoplay]}
             autoplay={{
@@ -57,8 +57,8 @@ const Instructor = () => {
                 instructorsInfo.map((instructorInfo, idx) => <SwiperSlide
                     key={idx}
                 >
-                    <div className='flex items-center justify-center min-h-[470px] bg-base-200'>
-                        <div className="relative w-9/12 mx-auto mt-6 bg-white border dark:bg-gray-800 dark:border-gray-700 rounded-xl">
+                    <div className='flex items-center justify-center mt-14 sm:mt-2 min-h-[470px] bg-base-200'>
+                        <div className="relative sm:w-9/12 mx-auto mt-0 bg-white border dark:bg-gray-800 dark:border-gray-700 rounded-xl mx-5 sm:mx-0">
                             <div className="">
                                 <div className="flex flex-wrap justify-center">
                                     <div className="flex justify-center w-full">

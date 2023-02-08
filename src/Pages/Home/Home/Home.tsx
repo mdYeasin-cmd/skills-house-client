@@ -131,7 +131,7 @@ const Home = () => {
             {/* Instructor Section */}
             <div className="bg-base-200 pt-5">
                 <div>
-                    <h2 className="sm:text-4xl text-center font-semibold pb-1 pt-14 mx-auto uppercase border-b-2 shadow-sm w-[24%] outline-offset-2">Our Instructor</h2>
+                    <h2 className="text-2xl sm:text-4xl text-center font-semibold pb-1 pt-14 mx-auto uppercase border-b-2 shadow-sm w-[220px] sm:w-[24%] outline-offset-2">Our Instructor</h2>
                 </div>
                 <Instructor />
             </div>
