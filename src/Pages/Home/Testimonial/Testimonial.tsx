@@ -62,6 +62,7 @@ const Testimonial = () => {
                         breakpoints={{
                             640: {
                                 slidesPerView: 3
+                                
                             }
                         }}
                         centeredSlides={true}
@@ -77,7 +78,7 @@ const Testimonial = () => {
                             reviews.map((review, idx) => <SwiperSlide
                                 key={idx}
                             >
-                                <div className="flex flex-col max-w-sm mx-5 sm:mx-4 my-0 sm:my-6 shadow-lg border rounded-md">
+                                <div className="flex flex-col w-[80%] sm:max-w-sm mx-auto sm:mx-4 my-0 sm:my-6 shadow-lg border rounded-md">
                                     <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 dark:bg-gray-900">
                                         <p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-100">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="w-8 h-8 dark:text-violet-400">
