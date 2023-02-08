@@ -110,38 +110,41 @@ const Advertise = () => {
                     disableOnInteraction: false,
                 }}
                 loop={true}
-                // effect={"fade"}
             >
                 {
                     coursesFeature.map((courseFeature, idx) => <SwiperSlide
                         key={idx}
                     >
-                        <div className="bg-[#34526e] flex justify-between xl:pl-16 text-white h-[360px]">
-                            <div data-aos="fade-left" className="py-20 flex justify-between w-1/2">
-                                <div>
-                                    <h1 className="text-3xl font-bold">{courseFeature.courseName}</h1>
+                        <div className="bg-[#34526e] flex justify-between xl:pl-16 text-white min-h-[360px]">
+                            <div data-aos="fade-left" className="py-14 sm:py-20 w-full sm:w-1/2 px-5 flex flex-col-reverse sm:flex-row sm:justify-between sm:px-0">
+                                <div className="flex justify-center">
+                                    <div>
+                                        <h1 className="mt-4 sm:mt-0 text-xl sm:text-3xl font-bold">{courseFeature.courseName}</h1>
 
-                                    <h2 className="text-xl mt-6 flex items-center">
-                                        <FaHandPointRight className="mr-2" /> Course Feature
-                                    </h2>
-                                    <ul className="ml-4">
-                                        {
-                                            courseFeature.features.map(feature => <li className="flex items-center text-lg"
-                                            >
-                                                <AiOutlineCheckSquare className="mr-1 text-green-400" /> {feature}
-                                            </li>)
-                                        }
+                                        <h2 className="text-xl mt-2 sm:mt-6 flex items-center">
+                                            <FaHandPointRight className="mr-2" /> Course Feature
+                                        </h2>
+                                        <ul className="ml-4">
+                                            {
+                                                courseFeature.features.map(feature => <li className="flex items-center text-lg"
+                                                >
+                                                    <AiOutlineCheckSquare className="mr-1 text-green-400" /> {feature}
+                                                </li>)
+                                            }
 
-                                    </ul>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div className="text-center">
+
+                                <div className="text-center hidden sm:block">
                                     <img className="w-14 h-14 mx-auto rounded-full" src={courseFeature.instructor.instructorImg} alt="" />
                                     <h1 className="text-lg font-medium">{courseFeature.instructor.name}</h1>
                                     <p>{courseFeature.instructor.designation}</p>
                                     <button className="btn bg-[#51DBDC] hover:bg-[#51DBDC] hover:bg-opacity-80 border-0 mt-2 advertise-enroll-btn">Enroll Now</button>
                                 </div>
+
                                 <div>
-                                    <div className="flex items-center rounded-full text-center justify-center bg-red-600 w-[120px] h-[120px] p-5 slide-active-zoom-in">
+                                    <div className="flex items-center justify-center mx-auto rounded-full text-center justify-center bg-red-600 w-[120px] h-[120px] p-5 slide-active-zoom-in">
                                         <div>
                                             <h1 className="text-4xl">{courseFeature.discountRate}</h1>
                                             <span className="text-lg">Discount</span> <br />
@@ -153,7 +156,7 @@ const Advertise = () => {
                                 </div>
                             </div>
 
-                            <div data-aos="fade-right" className="advertise-image w-1/2">
+                            <div data-aos="fade-right" className="advertise-image w-1/2 hidden sm:block">
                                 <img className="w-full h-full" src={courseFeature.courseImage} alt="" />
                             </div>
                         </div>
