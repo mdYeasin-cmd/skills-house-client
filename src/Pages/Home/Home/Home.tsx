@@ -139,7 +139,7 @@ const Home = () => {
             {/* Testimonial Section */}
             <div>
                 <div>
-                    <h2 className="sm:text-4xl text-center font-semibold pb-1 pt-14 mx-auto uppercase border-b-2 shadow-sm w-[20%] outline-offset-2">Testimonials</h2>
+                    <h2 className="text-2xl sm:text-4xl text-center font-semibold pb-1 pt-14 mx-auto uppercase border-b-2 shadow-sm w-[200px] sm:w-[20%] outline-offset-2">Testimonials</h2>
                 </div>
                 <Testimonial />
             </div>
