@@ -14,6 +14,7 @@ import Instructor from '../Instructor/Instructor';
 import Testimonial from '../Testimonial/Testimonial';
 import Advertise from '../Advertise/Advertise';
 import Statistics from '../Statistics/Statistics';
+import app from '../../../firebase/firebase.config';
 
 
 interface ICoursesInfo {
@@ -85,6 +86,8 @@ const Home = () => {
             icon: <AiOutlineSecurityScan />
         }
     ]
+
+    console.log(app);
 
     return (
         <div className="mt-[80px]">
