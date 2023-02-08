@@ -126,7 +126,9 @@ const Advertise = () => {
                                         </h2>
                                         <ul className="ml-4">
                                             {
-                                                courseFeature.features.map(feature => <li className="flex items-center text-lg"
+                                                courseFeature.features.map((feature, idx) => <li
+                                                    key={idx}
+                                                    className="flex items-center text-lg"
                                                 >
                                                     <AiOutlineCheckSquare className="mr-1 text-green-400" /> {feature}
                                                 </li>)
