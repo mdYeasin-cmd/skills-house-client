@@ -104,12 +104,12 @@ const Home = () => {
             {/* Popular Courses Section */}
             <div className="pb-12 bg-base-200">
                 <div>
-                    <h2 className="text-4xl text-center font-semibold pb-1 pt-14 mx-auto uppercase border-b-2 shadow-sm w-[27%] outline-offset-2">Popular Courses</h2>
-                    <p className="text-center pt-3 pb-5 text-lg mt-2">
+                    <h2 className="text-2xl sm:text-4xl text-center font-semibold pb-1 pt-14 mx-auto uppercase border-b-2 shadow-sm w-[240px] sm:w-[27%] outline-offset-2">Popular Courses</h2>
+                    <p className="text-center pt-3 pb-5 text-base px-4 sm:text-lg mt-2">
                         All of our popular courses by which students are satisfied
                     </p>
                 </div>
-                <div className="md:flex justify-between pt-5 pb-5 xl:px-16 overflow-x-hidden">
+                <div className="md:flex justify-between pt-5 pb-5 px-5 xl:px-16 overflow-x-hidden">
                     {
                         courses.map((course, idx) => <CourseCard
                             key={idx}
