@@ -7,7 +7,7 @@ const Statistics = ({ ...rest }) => {
     const [viewPortEntered, setViewPortEntered] = useState(false);
 
     return (
-        <div data-aos="fade-up" className="flex justify-between xl:px-16 text-center py-9">
+        <div data-aos="fade-up" className="sm:flex justify-between xl:px-16 text-center py-9">
             <div className="w-1/4">
                 <h3 className="text-5xl font-bold" data-number="2300">
                     <CountUp

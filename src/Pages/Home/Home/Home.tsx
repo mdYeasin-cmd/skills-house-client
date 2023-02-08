@@ -92,7 +92,7 @@ const Home = () => {
             <Banner></Banner>
 
             {/* Course Category Section */}
-            <div className="flex justify-between xl:px-16 text-center py-8">
+            <div className="sm:flex justify-between px-5 xl:px-16 text-center py-5 sm:py-8">
                 {
                     courseCategory.map((category, idx) => <CategoryCard
                         key={idx}
@@ -109,7 +109,7 @@ const Home = () => {
                         All of our popular courses by which students are satisfied
                     </p>
                 </div>
-                <div className="flex justify-between pt-5 pb-5 xl:px-16 overflow-x-hidden">
+                <div className="md:flex justify-between pt-5 pb-5 xl:px-16 overflow-x-hidden">
                     {
                         courses.map((course, idx) => <CourseCard
                             key={idx}
@@ -131,7 +131,7 @@ const Home = () => {
             {/* Instructor Section */}
             <div className="bg-base-200 pt-5">
                 <div>
-                    <h2 className="text-4xl text-center font-semibold pb-1 pt-14 mx-auto uppercase border-b-2 shadow-sm w-[24%] outline-offset-2">Our Instructor</h2>
+                    <h2 className="sm:text-4xl text-center font-semibold pb-1 pt-14 mx-auto uppercase border-b-2 shadow-sm w-[24%] outline-offset-2">Our Instructor</h2>
                 </div>
                 <Instructor />
             </div>
@@ -139,7 +139,7 @@ const Home = () => {
             {/* Testimonial Section */}
             <div>
                 <div>
-                    <h2 className="text-4xl text-center font-semibold pb-1 pt-14 mx-auto uppercase border-b-2 shadow-sm w-[20%] outline-offset-2">Testimonials</h2>
+                    <h2 className="sm:text-4xl text-center font-semibold pb-1 pt-14 mx-auto uppercase border-b-2 shadow-sm w-[20%] outline-offset-2">Testimonials</h2>
                 </div>
                 <Testimonial />
             </div>

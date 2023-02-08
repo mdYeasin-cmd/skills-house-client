@@ -64,12 +64,12 @@ const Banner = () => {
                             style={{
                                 backgroundImage: `url(${bannerInfo.bannerImage})`
                             }}
-                            className="banner-image"
+                            className="banner-image h-[435px] sm:h-[583px]"
                         >
                             <div className="flex justify-center items-center h-full text-white text-center">
                                 <div>
-                                    <h2 className="banner-title text-5xl font-bold uppercase">{bannerInfo.bannerTittle}</h2>
-                                    <h3 className="banner-subtitle w-8/12 text-lg mt-3 mx-auto">
+                                    <h2 className="banner-title text-3xl sm:text-5xl font-bold uppercase">{bannerInfo.bannerTittle}</h2>
+                                    <h3 className="banner-subtitle w-8/12 text-sm mt-3 mx-auto">
                                         {bannerInfo.bannerSubTittle}
                                     </h3>
                                     <button className="btn bg-[#51DBDC] hover:bg-[#51DBDC] hover:bg-opacity-80 border-0 mt-5 banner-enroll-btn">Enroll Now</button>
