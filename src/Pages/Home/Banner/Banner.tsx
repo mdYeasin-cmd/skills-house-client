@@ -53,8 +53,8 @@ const Banner = () => {
                 loop={true}
                 effect={"fade"}
                 pagination={{ clickable: true }}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
+                // onSlideChange={() => console.log('slide change')}
+                // onSwiper={(swiper) => console.log(swiper)}
             >
                 {
                     bannerItemsInfo.map(bannerInfo => <SwiperSlide

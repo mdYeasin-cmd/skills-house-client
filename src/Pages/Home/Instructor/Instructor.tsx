@@ -50,8 +50,8 @@ const Instructor = () => {
             }}
             navigation
             loop={true}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
+            // onSlideChange={() => console.log('slide change')}
+            // onSwiper={(swiper) => console.log(swiper)}
         >
             {
                 instructorsInfo.map((instructorInfo, idx) => <SwiperSlide

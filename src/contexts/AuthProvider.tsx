@@ -1,10 +1,12 @@
 import React, { createContext, useState, ReactNode, useEffect, SetStateAction, Dispatch } from 'react';
-import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut, User, UserCredential } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, User, UserCredential } from 'firebase/auth';
 import app from '../firebase/firebase.config';
 
 export type AuthContextType = {
     user: User | null;
     setUser: Dispatch<SetStateAction<User | null>>;
+    signUp: (email: string, password: string) => Promise<UserCredential>;
+    signIn: (email: string, password: string) => Promise<UserCredential>
     providerLogIn: (provider: GoogleAuthProvider) => Promise<UserCredential>;
     logOut: () => Promise<void>;
 }
@@ -22,7 +24,15 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
 
-    const providerLogIn = async (provider: GoogleAuthProvider): Promise<UserCredential> => {
+    const signUp = (email: string, password: string): Promise<UserCredential> => {
+        return createUserWithEmailAndPassword(auth, email, password);
+    }
+
+    const signIn = (email: string, password: string): Promise<UserCredential> => {
+        return signInWithEmailAndPassword(auth, email, password);
+    }
+
+    const providerLogIn = (provider: GoogleAuthProvider): Promise<UserCredential> => {
         return signInWithPopup(auth, provider);
     }
 
@@ -41,6 +51,8 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     const authInfo = {
         user,
         setUser,
+        signUp,
+        signIn,
         providerLogIn,
         logOut
     }

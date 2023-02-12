@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext, AuthContextType } from '../../contexts/AuthProvider';
 import logo from './../../assets/Logo/logo.png';
 import './Navbar.css';
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
 
@@ -21,7 +22,9 @@ const Navbar = () => {
 
     const handleLogOut = () => {
         logOut()
-            .then(() => { console.log('Successfully logged out') })
+            .then(() => {
+                toast.success('Log Out successfully from your account');
+            })
             .catch(error => console.log(error));
     }
 

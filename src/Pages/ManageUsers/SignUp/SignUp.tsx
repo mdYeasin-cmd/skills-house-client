@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AiOutlineMail } from "react-icons/ai";
 import { RiLockPasswordLine } from "react-icons/ri";
@@ -7,14 +7,40 @@ import { HiOutlineUser } from "react-icons/hi";
 import Footer from '../../../components/Footer/Footer';
 import { AuthContext, AuthContextType } from '../../../contexts/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
+import { useForm, SubmitHandler } from "react-hook-form";
+import toast from 'react-hot-toast';
+
+type Inputs = {
+    email: string;
+    password: string;
+    name: string;
+    gender: string;
+    profilePhoto: string;
+};
 
 const SignUp = () => {
 
-    const emailRef = useRef<HTMLInputElement>(null);
-    const passwordRef = useRef<HTMLInputElement>(null);
-
-    const { setUser, providerLogIn } = useContext(AuthContext) as AuthContextType;
+    const { setUser, providerLogIn, signUp } = useContext(AuthContext) as AuthContextType;
     const googleProvider = new GoogleAuthProvider();
+
+    const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
+    const onSubmit: SubmitHandler<Inputs> = data => {
+        signUpWithEmail(data.email, data.password);
+    };
+
+    // const {email, password} = formInfo;  
+
+    const signUpWithEmail = (email: string, password: string) => {
+
+        signUp(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            toast.success('Your accout created successfully');
+        })
+        .catch(error => console.log(error));
+
+    }
 
     const googleLogIn = async () => {
 
@@ -27,6 +53,7 @@ const SignUp = () => {
             .catch(error => console.log(error));
 
     }
+
     return (
         <div className="mt-[100px]">
             <div className="mx-auto container flex items-center" id="nav">
@@ -39,7 +66,7 @@ const SignUp = () => {
                                 </h2>
                             </div>
 
-                            <form className="mt-6">
+                            <form onSubmit={handleSubmit(onSubmit)} className="mt-6">
 
                                 <div className="mb-6 user-email">
                                     <div className="mt-1 relative rounded-md shadow-sm">
@@ -47,7 +74,7 @@ const SignUp = () => {
                                             <AiOutlineMail className="h-5 w-5 text-gray-400" />
                                         </div>
                                         <div className="flex items-center border-b border-gray-400 pl-0 pt-2 pb-1">
-                                            <input ref={emailRef} className="appearance-none bg-transparent border-none w-full text-[#34526e] mr-3 py-1 px-2 leading-tight focus:outline-none text-base" type="text" placeholder="Email" aria-label="Full name" name="email" />
+                                            <input {...register("email")}  className="appearance-none bg-transparent border-none w-full text-[#34526e] mr-3 py-1 px-2 leading-tight focus:outline-none text-base" type="text" placeholder="Email" name="email" />
                                         </div>
 
                                     </div>
@@ -60,7 +87,7 @@ const SignUp = () => {
                                             <HiOutlineUser className="h-5 w-5 text-gray-400" />
                                         </div>
                                         <div className="flex items-center border-b border-gray-400 pl-0 pt-2 pb-1">
-                                            <input className="appearance-none bg-transparent border-none w-full text-[#34526e] mr-3 py-1 px-2 leading-tight focus:outline-none text-base" type="text" placeholder="Name" aria-label="Full name" />
+                                            <input {...register("name")} className="appearance-none bg-transparent border-none w-full text-[#34526e] mr-3 py-1 px-2 leading-tight focus:outline-none text-base" type="text" placeholder="Name" aria-label="Full name" />
                                         </div>
 
                                     </div>
@@ -78,13 +105,13 @@ const SignUp = () => {
                                             <div className="flex flex-col sm:flex-row sm:items-center">
 
                                                 <label className="sm:mr-5">
-                                                    <input type="radio" name="gender" /> Male
+                                                    <input {...register("gender")} value="male"  type="radio" name="gender" /> Male
                                                 </label>
                                                 <label className="sm:mr-5">
-                                                    <input type="radio" name="gender" /> Female
+                                                    <input {...register("gender")} value="female" type="radio" name="gender" /> Female
                                                 </label>
                                                 <label className="sm:mr-5">
-                                                    <input type="radio" name="gender" /> Other
+                                                    <input {...register("gender")} value="other" type="radio" name="gender" /> Other
                                                 </label>
                                             </div>
                                         </div>
@@ -99,12 +126,15 @@ const SignUp = () => {
                                         </div>
                                         <div className="w-4/5 flex items-center">
                                             <span className="mr-2">:</span>
-                                            <span className="inline-block h-12 w-12 overflow-hidden rounded-full bg-gray-100">
+                                            {/* <span className="inline-block h-12 w-12 overflow-hidden rounded-full bg-gray-100">
                                                 <svg className="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
                                                     <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
                                                 </svg>
                                             </span>
-                                            <button type="button" className="ml-5 rounded-md border border-gray-300 bg-white py-2 px-3 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none">Choose</button>
+                                            <button type="button" className="ml-5 rounded-md border border-gray-300 bg-white py-2 px-3 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none">
+                                                
+                                            </button> */}
+                                            <input type="file" {...register("profilePhoto")} className="w-full rounded-md border border-gray-300 bg-white py-2 px-3 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none" />
                                         </div>
                                     </div>
                                 </div>
@@ -115,7 +145,7 @@ const SignUp = () => {
                                             <RiLockPasswordLine className="h-5 w-5 text-gray-400" />
                                         </div>
                                         <div className="flex items-center border-b border-gray-400 pl-0 pt-2 pb-1">
-                                            <input ref={passwordRef} className="appearance-none bg-transparent border-none w-full text-[#34526e] mr-3 py-1 px-2 leading-tight focus:outline-none text-base" type="text" placeholder="Password" aria-label="Password" />
+                                            <input {...register("password")} className="appearance-none bg-transparent border-none w-full text-[#34526e] mr-3 py-1 px-2 leading-tight focus:outline-none text-base" type="password" placeholder="Password" />
                                         </div>
                                     </div>
                                 </div>
@@ -139,19 +169,18 @@ const SignUp = () => {
                                     </button>
                                 </div>
 
-                                <div className="mt-5 already-account">
-                                    <p className="text-sm text-center">
-                                        Already have an account?
-                                        <Link className="font-bold text-sm text-[#51DBDC] color-effect hover:text-orange-800 ml-1" to="/login">
-                                            Log In
-                                        </Link>
-                                    </p>
-                                </div>
-
-                                <div className="divider text-sm text-gray-400">OR</div>
-
-
                             </form>
+
+                            <div className="mt-5 already-account">
+                                <p className="text-sm text-center">
+                                    Already have an account?
+                                    <Link className="font-bold text-sm text-[#51DBDC] color-effect hover:text-orange-800 ml-1" to="/login">
+                                        Log In
+                                    </Link>
+                                </p>
+                            </div>
+
+                            <div className="divider text-sm text-gray-400">OR</div>
 
                             <button onClick={googleLogIn} className='w-9 h-9 bg-slate-200 mx-auto rounded-full flex items-center'>
                                 <FcGoogle className="w-7 h-7 mx-auto" />
