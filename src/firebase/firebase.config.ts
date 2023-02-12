@@ -3,17 +3,8 @@ import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-type FirebaseConfigType = {
-    apiKey: string | undefined;
-    authDomain: string | undefined;
-    projectId: string | undefined;
-    storageBucket: string | undefined;
-    messagingSenderId: string | undefined;
-    appId: string | undefined;
-}
-
 // Your web app's Firebase configuration
-const firebaseConfig: FirebaseConfigType = {
+const firebaseConfig = {
     apiKey: process.env.REACT_APP_apiKey,
     authDomain: process.env.REACT_APP_authDomain,
     projectId: process.env.REACT_APP_projectId,
@@ -26,3 +17,7 @@ const firebaseConfig: FirebaseConfigType = {
 const app = initializeApp(firebaseConfig);
 
 export default app;
+
+
+
+

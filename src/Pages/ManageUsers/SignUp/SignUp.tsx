@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { AiOutlineMail } from "react-icons/ai";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { FcGoogle } from "react-icons/fc";
 import { HiOutlineUser } from "react-icons/hi";
 import Footer from '../../../components/Footer/Footer';
+import { AuthContext, AuthContextType } from '../../../contexts/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const SignUp = () => {
+
+    const emailRef = useRef<HTMLInputElement>(null);
+    const passwordRef = useRef<HTMLInputElement>(null);
+
+    const { setUser, providerLogIn } = useContext(AuthContext) as AuthContextType;
+    const googleProvider = new GoogleAuthProvider();
+
+    const googleLogIn = async () => {
+
+        providerLogIn(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(result.user);
+                setUser(user);
+            })
+            .catch(error => console.log(error));
+
+    }
     return (
         <div className="mt-[100px]">
             <div className="mx-auto container flex items-center" id="nav">
@@ -27,7 +47,7 @@ const SignUp = () => {
                                             <AiOutlineMail className="h-5 w-5 text-gray-400" />
                                         </div>
                                         <div className="flex items-center border-b border-gray-400 pl-0 pt-2 pb-1">
-                                            <input className="appearance-none bg-transparent border-none w-full text-[#34526e] mr-3 py-1 px-2 leading-tight focus:outline-none text-base" type="text" placeholder="Email" aria-label="Full name" />
+                                            <input ref={emailRef} className="appearance-none bg-transparent border-none w-full text-[#34526e] mr-3 py-1 px-2 leading-tight focus:outline-none text-base" type="text" placeholder="Email" aria-label="Full name" name="email" />
                                         </div>
 
                                     </div>
@@ -51,12 +71,12 @@ const SignUp = () => {
                                     <div className="mt-1 flex sm:items-center">
                                         <div className="w-1/5 flex justify-between">
                                             <span className="mr-1 px-2">Gender</span>
-                                            
+
                                         </div>
                                         <div className="w-4/5 flex sm:items-center ml-5 sm:ml-0">
-                                        <span className="mr-2">:</span>
+                                            <span className="mr-2">:</span>
                                             <div className="flex flex-col sm:flex-row sm:items-center">
-                                            
+
                                                 <label className="sm:mr-5">
                                                     <input type="radio" name="gender" /> Male
                                                 </label>
@@ -75,10 +95,10 @@ const SignUp = () => {
                                     <div className="mt-1 flex items-center ">
                                         <div className="w-1/5 flex justify-between">
                                             <label className="text-sm font-medium text-gray-700 px-2">Photo</label>
-                                            
+
                                         </div>
                                         <div className="w-4/5 flex items-center">
-                                        <span className="mr-2">:</span>
+                                            <span className="mr-2">:</span>
                                             <span className="inline-block h-12 w-12 overflow-hidden rounded-full bg-gray-100">
                                                 <svg className="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
                                                     <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -95,7 +115,7 @@ const SignUp = () => {
                                             <RiLockPasswordLine className="h-5 w-5 text-gray-400" />
                                         </div>
                                         <div className="flex items-center border-b border-gray-400 pl-0 pt-2 pb-1">
-                                            <input className="appearance-none bg-transparent border-none w-full text-[#34526e] mr-3 py-1 px-2 leading-tight focus:outline-none text-base" type="text" placeholder="Password" aria-label="Password" />
+                                            <input ref={passwordRef} className="appearance-none bg-transparent border-none w-full text-[#34526e] mr-3 py-1 px-2 leading-tight focus:outline-none text-base" type="text" placeholder="Password" aria-label="Password" />
                                         </div>
                                     </div>
                                 </div>
@@ -122,7 +142,7 @@ const SignUp = () => {
                                 <div className="mt-5 already-account">
                                     <p className="text-sm text-center">
                                         Already have an account?
-                                        <Link className="font-bold text-sm text-[#51DBDC] color-effect hover:text-orange-800 ml-1" to="/signup">
+                                        <Link className="font-bold text-sm text-[#51DBDC] color-effect hover:text-orange-800 ml-1" to="/login">
                                             Log In
                                         </Link>
                                     </p>
@@ -130,10 +150,12 @@ const SignUp = () => {
 
                                 <div className="divider text-sm text-gray-400">OR</div>
 
-                                <div className='w-9 h-9 bg-slate-200 mx-auto rounded-full flex items-center'>
-                                    <FcGoogle className="w-7 h-7 mx-auto" />
-                                </div>
+
                             </form>
+
+                            <button onClick={googleLogIn} className='w-9 h-9 bg-slate-200 mx-auto rounded-full flex items-center'>
+                                <FcGoogle className="w-7 h-7 mx-auto" />
+                            </button>
 
 
                         </div>

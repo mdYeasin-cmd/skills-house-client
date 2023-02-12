@@ -1,12 +1,30 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { AiOutlineMail } from "react-icons/ai";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from 'react-router-dom';
 import './LogIn.css';
 import Footer from '../../../components/Footer/Footer';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { AuthContext, AuthContextType } from '../../../contexts/AuthProvider';
 
 const LogIn = () => {
+
+    const {providerLogIn, setUser} = useContext(AuthContext) as AuthContextType;
+    const googleProvider = new GoogleAuthProvider();
+
+    const googleLogIn = async () => {
+
+        providerLogIn(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(result.user);
+                setUser(user);
+            })
+            .catch(error => console.log(error));
+
+    }
+
     return (
         <div className="mt-[100px]">
             <div className="mx-auto container flex items-center" id="nav">
@@ -69,17 +87,19 @@ const LogIn = () => {
                                 </div>
                                 <div className="mt-5">
                                     <p className="text-sm text-center">
-                                        Don't have an account? 
+                                        Don't have an account?
                                         <Link className="font-bold text-sm text-[#51DBDC] color-effect hover:text-orange-800 ml-1" to="/signup">
                                             Sign Up
                                         </Link>
                                     </p>
                                 </div>
                                 <div className="divider text-sm text-gray-400">OR</div>
-                                <div className='w-9 h-9 bg-slate-200 mx-auto rounded-full flex items-center'>
-                                    <FcGoogle className="w-7 h-7 mx-auto" />
-                                </div>
+
                             </form>
+
+                            <button onClick={ googleLogIn } className='w-9 h-9 bg-slate-200 mx-auto rounded-full flex items-center'>
+                                <FcGoogle className="w-7 h-7 mx-auto" />
+                            </button>
 
 
                         </div>
