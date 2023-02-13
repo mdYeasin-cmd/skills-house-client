@@ -22,7 +22,7 @@ type AuthProviderProps = {
 const AuthProvider = ({ children }: AuthProviderProps) => {
 
     const [user, setUser] = useState<User | null>(null);
-    const [loading, setLoading] = useState<boolean>(false);
+    // const [loading, setLoading] = useState<boolean>(false);
 
     const signUp = (email: string, password: string): Promise<UserCredential> => {
         return createUserWithEmailAndPassword(auth, email, password);

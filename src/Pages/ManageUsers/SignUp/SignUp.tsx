@@ -1,5 +1,5 @@
-import React, { useContext, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineMail } from "react-icons/ai";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { FcGoogle } from "react-icons/fc";
@@ -22,6 +22,7 @@ const SignUp = () => {
 
     const { setUser, providerLogIn, signUp } = useContext(AuthContext) as AuthContextType;
     const googleProvider = new GoogleAuthProvider();
+    const navigate = useNavigate();
 
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
     const onSubmit: SubmitHandler<Inputs> = data => {
@@ -37,6 +38,7 @@ const SignUp = () => {
             const user = result.user;
             console.log(user);
             toast.success('Your accout created successfully');
+            navigate('/');
         })
         .catch(error => console.log(error));
 
@@ -49,6 +51,7 @@ const SignUp = () => {
                 const user = result.user;
                 console.log(result.user);
                 setUser(user);
+                navigate('/');
             })
             .catch(error => console.log(error));
 

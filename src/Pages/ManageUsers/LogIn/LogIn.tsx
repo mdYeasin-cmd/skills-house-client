@@ -2,16 +2,42 @@ import React, {useContext} from 'react';
 import { AiOutlineMail } from "react-icons/ai";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './LogIn.css';
 import Footer from '../../../components/Footer/Footer';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { AuthContext, AuthContextType } from '../../../contexts/AuthProvider';
+import { useForm, SubmitHandler } from "react-hook-form";
+import toast from 'react-hot-toast';
+
+type Inputs = {
+    email: string;
+    password: string;
+};
 
 const LogIn = () => {
 
-    const {providerLogIn, setUser} = useContext(AuthContext) as AuthContextType;
+    const {providerLogIn, setUser, signIn} = useContext(AuthContext) as AuthContextType;
     const googleProvider = new GoogleAuthProvider();
+    const navigate = useNavigate();
+
+    const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
+    const onSubmit: SubmitHandler<Inputs> = data => {
+        signInWithEmail(data.email, data.password);
+    };
+
+    const signInWithEmail = (email: string, password:string) => {
+        
+        signIn(email, password)
+        .then(result => {
+            const user = result.user;
+            toast.success("Successfully loged in");
+            console.log(user);
+            navigate('/');
+        })
+        .catch(error => console.log(error));
+
+    }
 
     const googleLogIn = async () => {
 
@@ -20,6 +46,7 @@ const LogIn = () => {
                 const user = result.user;
                 console.log(result.user);
                 setUser(user);
+                navigate('/');
             })
             .catch(error => console.log(error));
 
@@ -36,7 +63,7 @@ const LogIn = () => {
                                     Log In
                                 </h2>
                             </div>
-                            <form className="mt-6">
+                            <form onSubmit={handleSubmit(onSubmit)} className="mt-6">
 
                                 <div className="mb-6">
                                     <div className="mt-1 relative rounded-md shadow-sm">
@@ -44,7 +71,7 @@ const LogIn = () => {
                                             <AiOutlineMail className="h-5 w-5 text-gray-400" />
                                         </div>
                                         <div className="flex items-center border-b border-gray-400 pl-0 pt-2 pb-1">
-                                            <input className="appearance-none bg-transparent border-none w-full text-[#34526e] mr-3 py-1 px-2 leading-tight focus:outline-none text-base" type="text" placeholder="Email" aria-label="Full name" />
+                                            <input {...register("email")} className="appearance-none bg-transparent border-none w-full text-[#34526e] mr-3 py-1 px-2 leading-tight focus:outline-none text-base" type="email" placeholder="Email"  />
                                         </div>
 
                                     </div>
@@ -57,7 +84,7 @@ const LogIn = () => {
                                             <RiLockPasswordLine className="h-5 w-5 text-gray-400" />
                                         </div>
                                         <div className="flex items-center border-b border-gray-400 pl-0 pt-2 pb-1">
-                                            <input className="appearance-none bg-transparent border-none w-full text-[#34526e] mr-3 py-1 px-2 leading-tight focus:outline-none text-base" type="text" placeholder="Password" aria-label="Password" />
+                                            <input {...register("password")} className="appearance-none bg-transparent border-none w-full text-[#34526e] mr-3 py-1 px-2 leading-tight focus:outline-none text-base" type="password" placeholder="Password" aria-label="Password" />
                                         </div>
                                     </div>
                                 </div>
