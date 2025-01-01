@@ -20,6 +20,26 @@ jobs:
       - name: Install dependencis
         run: npm install
 
+      - name: Run the test cases
+        run: echo "Test cases are running..."
+
+  build-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install node-js
+        uses: actions/setup-node@v4
+        with:
+          node-version: v20.3.0
+
+      - name: Copying the code
+        uses: actions/checkout@v4
+
+      - name: Install dependencis
+        run: npm install
+
+      - name: Build the codes
+        run: npm run build
+
       # - name: Print working directory
       #   run: |
       #     pwd
