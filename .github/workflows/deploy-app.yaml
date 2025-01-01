@@ -6,10 +6,24 @@ jobs:
   test-code:
     runs-on: ubuntu-latest
     steps:
-      - name: Print working directory
-        run: |
-          pwd
-          ls -la
-          echo $GITHUB_WORKSPACE
-          node -v
-          git --version
+      - name: Copying the code
+        uses: actions/checkout@v4
+
+      - name: Install node-js
+        uses: actions/setup-node@v4
+        with:
+          node-version: v20.3.0
+
+      - name: Check node version
+        run: node -v
+
+      - name: Install dependencis
+        run: npm install
+
+      # - name: Print working directory
+      #   run: |
+      #     pwd
+      #     ls -la
+      #     echo $GITHUB_WORKSPACE
+      #     node -v
+      #     git --version
