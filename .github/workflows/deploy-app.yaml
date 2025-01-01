@@ -11,3 +11,5 @@ jobs:
           pwd
           ls -la
           echo $GITHUB_WORKSPACE
+          node -v
+          git --version
